@@ -1,1 +1,200 @@
- 
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Aleix Pons Costa - IES Marratxí</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica', sans-serif;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(to right, #1a4548, #2e7d32);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            animation: headerFade 1s ease-in;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 1rem;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid white;
+            animation: profilePop 0.5s ease-out;
+        }
+
+        nav {
+            background: #1a4548;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: #2e7d32;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 7fr 3fr;
+            gap: 2rem;
+        }
+
+        .post {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 0.5s ease-out forwards;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+        }
+
+        .categories {
+            margin-top: 1rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 15px;
+            margin: 0.2rem;
+            font-size: 0.9rem;
+        }
+
+        @keyframes profilePop {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes headerFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog de Aleix Pons Costa</h1>
+        <p>Estudiant de IES Marratxí</p>
+        <div class="profile-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grosser_Panda.JPG/640px-Grosser_Panda.JPG" alt="Foto de perfil" class="profile-image">
+            <p>Benvinguts al meu espai personal on comparteixo les meves reflexions i experiències</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inici">Inici</a></li>
+            <li><a href="#sobre-mi">Sobre Mi</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#contacte">Contacte</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <main>
+            <article class="post">
+                <h2>Benvinguts al meu Blog</h2>
+                <p>Hola! Em dic Aleix Pons Costa i aquest és el meu espai personal...</p>
+                <div class="categories">
+                    <span class="category-tag">Presentació</span>
+                    <span class="category-tag">Personal</span>
+                </div>
+            </article>
+
+            <article class="post">
+                <h2>La Prohibició dels Mòbils a l'Institut</h2>
+                <p>La meva opinió sobre aquest tema controvertit...</p>
+                <div class="categories">
+                    <span class="category-tag">Opinió</span>
+                    <span class="category-tag">Educació</span>
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <div class="categories">
+                <span class="category-tag">Presentació</span>
+                <h3>  
+                    Hola
+                </h3>
+                <span class="category-tag">Personal</span>
+                <span class="category-tag">Opinió</span>
+                <span class="category-tag">Educació</span>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
