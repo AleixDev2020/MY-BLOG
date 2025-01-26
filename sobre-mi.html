@@ -5,7 +5,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Mi - Blog de Aleix Pons Costa</title>
     <style>
-        /* ... Mismo CSS que index.html ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica', sans-serif;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(to right, #4a148c, #7b1fa2);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            animation: headerFade 1s ease-in;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #e1bee7;
+            animation: profilePop 0.5s ease-out, float 3s ease-in-out infinite;
+        }
+
+        nav {
+            background: #4a148c;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: #7b1fa2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 31, 162, 0.4);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 7fr 3fr;
+            gap: 2rem;
+        }
+
+        .post {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 0.5s ease-out forwards;
+            transition: transform 0.3s ease;
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(123, 31, 162, 0.2);
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+        }
+
+        .categories {
+            margin-top: 1rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: #f3e5f5;
+            color: #4a148c;
+            border-radius: 15px;
+            margin: 0.2rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .category-tag:hover {
+            background: #4a148c;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .skills-list li {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            animation: slideRight 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .skills-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #7b1fa2;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes profilePop {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes headerFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0% { background: rgba(255, 255, 255, 0.1); }
+            50% { background: rgba(255, 255, 255, 0.2); }
+            100% { background: rgba(255, 255, 255, 0.1); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
     </style>
 </head>
 <body>
@@ -22,7 +216,7 @@
         <ul>
             <li><a href="index.html">Inici</a></li>
             <li><a href="sobre-mi.html">Sobre Mi</a></li>
-            <li><a href="#articles">Articles</a></li>
+            
             <li><a href="contacte.html">Contacte</a></li>
         </ul>
     </nav>
@@ -31,12 +225,12 @@
         <main>
             <article class="post">
                 <h2>Sobre Mi</h2>
-                <p>Hola! Som n'Aleix Pons Costa, estudiant a l'IES Marratxí. M'agrada...</p>
-                <p>Els meus interessos principals són:</p>
-                <ul>
-                    <li>Tecnologia i programació</li>
-                    <li>Esports</li>
-                    <li>Música</li>
+                <p>Hola! Som n'Aleix Pons Costa, estudiant a l'IES Marratxí. M'agrada la tecnologia i aprendre coses noves cada dia.</p>
+                <ul class="skills-list">
+                    <li>Apassionat per la tecnologia i la programació</li>
+                    <li>Estudiant dedicat amb ganes d'aprendre</li>
+                    <li>M'encanta la música i els esports</li>
+                    <li>Sempre cercant nous reptes i experiències entorn a la programacio <h1> :)</h1></li>
                 </ul>
                 <div class="categories">
                     <span class="category-tag">Personal</span>
