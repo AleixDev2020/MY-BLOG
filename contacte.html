@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacte - Blog de Aleix Pons Costa</title>
+    <style>
+        /* ... Mismo CSS que index.html ... */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog de Aleix Pons Costa</h1>
+        <p>Estudiant de IES Marratxí</p>
+        <div class="profile-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grosser_Panda.JPG/640px-Grosser_Panda.JPG" alt="Foto de perfil" class="profile-image">
+            <p>Benvinguts al meu espai personal on comparteixo les meves reflexions i experiències</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inici</a></li>
+            <li><a href="sobre-mi.html">Sobre Mi</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="contacte.html">Contacte</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <main>
+            <article class="post">
+                <h2>Contacte</h2>
+                <p>Si vols contactar amb mi, pots fer-ho a través de:</p>
+                <ul>
+                    <li>Email: apons@iesmarratxi.org</li>
+                    <li>Institut: IES Marratxí</li>
+                </ul>
+                <div class="categories">
+                    <span class="category-tag">Contacte</span>
+                </div>
+            </article>
+
+            <article class="post">
+                <h2>Formulari de Contacte</h2>
+                <form>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="nom">Nom:</label><br>
+                        <input type="text" id="nom" name="nom" style="width: 100%; padding: 0.5rem;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" style="width: 100%; padding: 0.5rem;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="missatge">Missatge:</label><br>
+                        <textarea id="missatge" name="missatge" rows="4" style="width: 100%; padding: 0.5rem;"></textarea>
+                    </div>
+                    <button type="submit" style="background: #2e7d32; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">
+                        Enviar
+                    </button>
+                </form>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <div class="categories">
+                <span class="category-tag">Contacte</span>
+                <span class="category-tag">Personal</span>
+            </div>
+        </aside>
+    </div>
+</body>
+</html> 
