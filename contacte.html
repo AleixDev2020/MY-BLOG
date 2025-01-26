@@ -5,7 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacte - Blog de Aleix Pons Costa</title>
     <style>
-        /* ... Mismo CSS que index.html ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(45deg, #f5f5f5, #e0f2f1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #1976d2, #ff7043);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            animation: headerGradient 10s ease infinite;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #ff7043;
+            box-shadow: 0 0 20px rgba(25, 118, 210, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        nav {
+            background: #1976d2;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: #ff7043;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 112, 67, 0.4);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 7fr 3fr;
+            gap: 2rem;
+        }
+
+        .post {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.5s ease-out forwards;
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(25, 118, 210, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 10px rgba(25, 118, 210, 0.2);
+        }
+
+        button {
+            background: linear-gradient(45deg, #1976d2, #ff7043);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(25, 118, 210, 0.4);
+            background: linear-gradient(45deg, #ff7043, #1976d2);
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid #1976d2;
+            animation: slideRight 0.5s ease-out forwards;
+        }
+
+        .contact-info li {
+            margin: 0.5rem 0;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info li:hover {
+            color: #ff7043;
+            transform: translateX(10px);
+        }
+
+        @keyframes headerGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { background: rgba(255, 255, 255, 0.1); }
+            50% { background: rgba(255, 255, 255, 0.2); }
+            100% { background: rgba(255, 255, 255, 0.1); }
+        }
     </style>
 </head>
 <body>
@@ -22,7 +214,7 @@
         <ul>
             <li><a href="index.html">Inici</a></li>
             <li><a href="sobre-mi.html">Sobre Mi</a></li>
-            <li><a href="#articles">Articles</a></li>
+        
             <li><a href="contacte.html">Contacte</a></li>
         </ul>
     </nav>
@@ -32,44 +224,34 @@
             <article class="post">
                 <h2>Contacte</h2>
                 <p>Si vols contactar amb mi, pots fer-ho a través de:</p>
-                <ul>
-                    <li>Email: apons@iesmarratxi.org</li>
-                    <li>Institut: IES Marratxí</li>
+                <ul class="contact-info">
+                    <li>📧 Email: aleixponscosta@iesmarratxi.org</li>
+                    <li>🏫 Institut: IES Marratxí</li>
+                    <li>📍 Localització: Marratxí, Mallorca</li>
                 </ul>
-                <div class="categories">
-                    <span class="category-tag">Contacte</span>
-                </div>
             </article>
 
             <article class="post">
                 <h2>Formulari de Contacte</h2>
                 <form>
-                    <div style="margin-bottom: 1rem;">
-                        <label for="nom">Nom:</label><br>
-                        <input type="text" id="nom" name="nom" style="width: 100%; padding: 0.5rem;">
+                    <div>
+                        <label for="nom">Nom:</label>
+                        <input type="text" id="nom" name="nom" required>
                     </div>
-                    <div style="margin-bottom: 1rem;">
-                        <label for="email">Email:</label><br>
-                        <input type="email" id="email" name="email" style="width: 100%; padding: 0.5rem;">
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-                    <div style="margin-bottom: 1rem;">
-                        <label for="missatge">Missatge:</label><br>
-                        <textarea id="missatge" name="missatge" rows="4" style="width: 100%; padding: 0.5rem;"></textarea>
+                    <div>
+                        <label for="missatge">Missatge:</label>
+                        <textarea id="missatge" name="missatge" rows="4" required></textarea>
                     </div>
-                    <button type="submit" style="background: #2e7d32; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">
-                        Enviar
-                    </button>
+                    <button type="submit">Enviar Missatge</button>
                 </form>
             </article>
         </main>
 
-        <aside class="sidebar">
-            <h3>Categories</h3>
-            <div class="categories">
-                <span class="category-tag">Contacte</span>
-                <span class="category-tag">Personal</span>
-            </div>
-        </aside>
+       
     </div>
 </body>
 </html> 
